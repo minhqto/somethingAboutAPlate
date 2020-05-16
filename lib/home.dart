@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 //import "./widgets/bottomMenuBar.dart";
 import "package:mypalate/views/mylist.dart";
 import 'package:mypalate/views/homePage.dart';
+import 'package:mypalate/views/discover.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -28,14 +29,15 @@ class _HomeState extends State<Home> {
           Container(child: new IndexedStack(
             index: _selectedIndex,
             children: <Widget>[
-              new HomePage(),
-              new MyList(),
+               HomePage(),
+               MyList(),
+              Discover()
             ]
           )),
-          new Positioned.fill(
-            child: new LayoutBuilder(builder: (context, constraints){
+          Positioned.fill(
+            child: LayoutBuilder(builder: (context, constraints){
 
-          return new Padding(
+          return Padding(
           padding: EdgeInsets.only(
               top: constraints.biggest.height * .83,
               bottom: constraints.biggest.height * .1,
