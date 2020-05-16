@@ -11,15 +11,14 @@ class _DiscoverState extends State<Discover> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(globals.appBarHeight),
-          child: CustomAppBar(appName: "Discover")
-      ),
-      body: Column(children: <Widget>[
-
-        //need a carousel
-        //and appBar
-      ]
-    ));
+        backgroundColor: Colors.white,
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(globals.appBarHeight),
+            child: CustomAppBar(appName: "Discover")),
+        body:
+        Column(children: <Widget>[
+          //need a carousel
+          //and appBar
+        ]));
   }
 }
