@@ -4,6 +4,8 @@ import "package:flutter/material.dart";
 import "package:mypalate/views/mylist.dart";
 import 'package:mypalate/views/homePage.dart';
 import 'package:mypalate/views/discover.dart';
+import 'package:mypalate/widgets/customAppBar.dart';
+import 'package:mypalate/globals.dart' as globals;
 
 class Home extends StatefulWidget {
   @override

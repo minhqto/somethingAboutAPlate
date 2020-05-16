@@ -10,29 +10,18 @@ class _MiniRecipeCardState extends State<MiniRecipeCard> {
   @override
   Widget build(BuildContext context) {
 
-    return Card(
-        elevation: 1,
-        child: ListTile(
-            onTap: () {},
-            //TODO opens up the recipe card for that list tile,
-            title: Text("This is a recipe!"),
-            leading: Image(
-              image: NetworkImage(
-                  'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/154660.jpg'),
-            )));
-
     return Container(
-      margin: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+      margin: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
       height: 160,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(10.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black,
-            offset: Offset(0, 2),
-            blurRadius: 6.0,
+            offset: Offset(0, 1),
+            blurRadius: 1.0,
           ),
         ],
       ),
@@ -98,7 +87,7 @@ class _MiniRecipeCardState extends State<MiniRecipeCard> {
                       children: <Widget>[
                         Text(
                           "Recipe Name here",
-                          style: TextStyle(fontSize: 22.0),
+                          style: TextStyle(fontSize: 16.0),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
