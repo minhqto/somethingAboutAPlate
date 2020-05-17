@@ -1,5 +1,6 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:mypalate/data/recipe.dart';
 
 class MiniRecipeCard extends StatefulWidget {
   @override
@@ -7,6 +8,11 @@ class MiniRecipeCard extends StatefulWidget {
 }
 
 class _MiniRecipeCardState extends State<MiniRecipeCard> {
+
+
+  //constructor
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -86,7 +92,7 @@ class _MiniRecipeCardState extends State<MiniRecipeCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Recipe Name here",
+                          "Recipe Name",
                           style: TextStyle(fontSize: 16.0),
                         ),
                         Padding(

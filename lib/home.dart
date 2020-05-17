@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
+
     setState(() {
       _selectedIndex = index;
     });
@@ -30,12 +31,18 @@ class _HomeState extends State<Home> {
             Container(
                 child: new IndexedStack(
                     index: _selectedIndex,
-                    children: <Widget>[HomePage(), MyList(), Discover()])),
+                    children:
+                    <Widget>[
+                      HomePage(),
+                      MyList(),
+                      Discover(),
+
+                    ])),
             Positioned.fill(
               child: LayoutBuilder(builder: (context, constraints) {
                 return Padding(
                   padding: EdgeInsets.only(
-                      top: constraints.biggest.height * .83,
+                      top: constraints.biggest.height * 0.82,
                       bottom: constraints.biggest.height * .1,
                       left: constraints.biggest.width * .05,
                       right: constraints.biggest.width * .05),
