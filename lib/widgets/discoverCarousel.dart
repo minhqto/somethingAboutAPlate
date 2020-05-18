@@ -78,6 +78,7 @@ class _DiscoverCarouselState extends State<DiscoverCarousel> {
     final double blur = active ? 20 : 0;
     final double offset = active ? 20 : 0;
     final double top = active ? 50 : 150;
+    final double bottom = active ? 0 : 50;
 
     return AnimatedContainer(
       child: Column(
@@ -89,7 +90,7 @@ class _DiscoverCarouselState extends State<DiscoverCarousel> {
 
       duration: Duration(milliseconds: 100),
       //curve: Curves.easeOutQuint,
-      margin: EdgeInsets.only(top: top, right: 20, left: 20),
+      margin: EdgeInsets.only(top: top, right: 20, left: 20, bottom: bottom),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.blue,
