@@ -60,7 +60,6 @@ class _DiscoverCarouselState extends State<DiscoverCarousel> {
         controller: ctrl,
         //itemCount: recipesLength,
         itemBuilder: (context, index){
-
           if(recipesLength >= index){
             bool active = index == currentPage;
             return _buildRecipeImage(myRecipes[index], active);
@@ -77,30 +76,36 @@ class _DiscoverCarouselState extends State<DiscoverCarousel> {
   {
     final double blur = active ? 20 : 0;
     final double offset = active ? 20 : 0;
-    final double top = active ? 50 : 150;
-    final double bottom = active ? 0 : 50;
+    final double top = active ? 0 : 50;
+    final double bottom = active ? 100 : 150;
+    final double opacityAmt = active ? 1 : 0.4;
 
-    return AnimatedContainer(
+    return Opacity(
+      opacity: opacityAmt,
+      child: AnimatedContainer(
       child: Column(
         children: <Widget>[
 
-
         ],
       ),
-
       duration: Duration(milliseconds: 100),
-      //curve: Curves.easeOutQuint,
-      margin: EdgeInsets.only(top: top, right: 20, left: 20, bottom: bottom),
+      curve: Curves.easeOutQuint,
+      margin: EdgeInsets.only(top: top, right: 10, left: 10, bottom: bottom),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         color: Colors.blue,
-        boxShadow: [BoxShadow(blurRadius: blur, offset: Offset(offset, offset))],
-        image: DecorationImage(
+       // boxShadow: [BoxShadow(blurRadius: blur, offset: Offset(offset, offset))],
+        image:
+          DecorationImage(
           fit: BoxFit.cover,
-          image: NetworkImage(r.imageUrl)
+          image: NetworkImage(
+              r.imageUrl,
+
+          )
         )
 
       ),
+      )
     );
   }
 
