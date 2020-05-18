@@ -1,8 +1,3 @@
-import 'dart:convert';
-
-import "package:http/http.dart";
-
-
 class Recipe{
 
   int recipeId;
@@ -29,19 +24,24 @@ class Recipe{
     this.desc,
     this.source,
     this.ingredients,
-    this.tags});
+    this.tags
+  });
 
-}
-
-Future<void>loadRecipes() async
-{
-  try {
-    Response rp = await get("http://159.203.29.234:8080/v1/recipes/1");
-
-    dynamic rpStr = jsonDecode(rp.body);
-    print(rpStr.toString());
-
-  }catch (error){
-      print(error);
+  factory Recipe.fromJson(Map<String, dynamic> json){
+    return Recipe(
+      recipeId: json['recipe_id'],
+      recipeName: json['name'],
+      recipeUrl: json['url'],
+      imageUrl: json['img_url'],
+      prepTime: json['prep_time'],
+      servings: json['servings'],
+      difficulty: json['difficulty'],
+      desc: json['description'],
+      source: json['source'],
+      ingredients: json['ingrediants'],
+      tags: json['tags'],
+    );
   }
 }
+
+

@@ -10,7 +10,8 @@ class MiniRecipeCard extends StatefulWidget {
 class _MiniRecipeCardState extends State<MiniRecipeCard> {
 
 
-  //constructor
+  //still need to fix the width of the cards
+
 
 
   @override
