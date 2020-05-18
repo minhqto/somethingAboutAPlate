@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-              Center(child: Text("Home Page placeholder"))
+              Center(child: Image(image: AssetImage('assets/img/logo.png')))
             ],
           ),
     );

@@ -12,14 +12,20 @@ class CustomAppBar extends StatefulWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
+
+    double titleLeftPadding = MediaQuery.of(context).size.width * 0.1;
+    double titleTopPadding = MediaQuery.of(context).size.height * 0.08;
+
     return AppBar(
       flexibleSpace: Padding(
         child: Text(widget.appName,
             style: TextStyle(
                 fontSize: 30,
                 color: Colors.pinkAccent,
-                fontWeight: FontWeight.bold)),
-        padding: const EdgeInsets.fromLTRB(20, 60, 0, 0),
+                fontWeight: FontWeight.bold,
+                fontFamily: "Nunito-Regular")),
+
+        padding: EdgeInsets.only(left: titleLeftPadding, top: titleTopPadding)
       ),
       backgroundColor: Colors.white,
       elevation: 0,

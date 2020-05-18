@@ -24,6 +24,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    double menuBarHeight = MediaQuery.of(context).size.height * 0.8;
+    double menuBarWidth = MediaQuery.of(context).size.width * 0.1;
+
     return Scaffold(
         appBar: null,
         body: Stack(
@@ -42,10 +45,10 @@ class _HomeState extends State<Home> {
               child: LayoutBuilder(builder: (context, constraints) {
                 return Padding(
                   padding: EdgeInsets.only(
-                      top: constraints.biggest.height * 0.82,
-                      bottom: constraints.biggest.height * .1,
-                      left: constraints.biggest.width * .05,
-                      right: constraints.biggest.width * .05),
+                      top: menuBarHeight * 1,
+                      bottom: menuBarHeight * .14,
+                      left: menuBarWidth * .4,
+                      right: menuBarWidth * .4),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
@@ -63,31 +66,31 @@ class _HomeState extends State<Home> {
                           icon: Icon(Icons.home),
                           title: Text("Home",
                               style:
-                                  TextStyle(fontSize: 10, color: Colors.black)),
+                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.format_list_numbered),
                           title: Text("My List",
                               style:
-                                  TextStyle(fontSize: 10, color: Colors.black)),
+                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.remove_red_eye),
                           title: Text("Discover",
                               style:
-                                  TextStyle(fontSize: 10, color: Colors.black)),
+                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.fastfood),
                           title: Text("Meals",
                               style:
-                                  TextStyle(fontSize: 10, color: Colors.black)),
+                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.account_circle),
                           title: Text("Account",
                               style:
-                                  TextStyle(fontSize: 10, color: Colors.black)),
+                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
                         ),
                       ],
                     ),

@@ -37,7 +37,7 @@ class _BottomMenuBarState extends State<BottomMenuBar> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text("Home", style: TextStyle(fontSize: 10, color: Colors.black)),
+                title: Text("Home", style: TextStyle(fontSize: 100, color: Colors.black, fontFamily: "Nunito-Regular")),
 
             ),
             BottomNavigationBarItem(

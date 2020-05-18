@@ -12,8 +12,6 @@ class _MiniRecipeCardState extends State<MiniRecipeCard> {
 
   //still need to fix the width of the cards
 
-
-
   @override
   Widget build(BuildContext context) {
 

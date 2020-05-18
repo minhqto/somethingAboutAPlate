@@ -15,6 +15,8 @@ class MyList extends StatefulWidget {
 class _MyListState extends State<MyList> {
 
   List<Recipe> myRecipes;
+  List<Recipe> myRecipes2;
+  int recipesLength = 0;
 
   List<Recipe> parseRecipes(String rb)
   {
@@ -35,10 +37,9 @@ class _MyListState extends State<MyList> {
     .then((result){
       setState((){
         myRecipes = result;
+        recipesLength = result.length; //need this otherwise an exception is thrown under "itemCount" for listView builder
       });
-
     });
-
   }
 
   @override
@@ -50,18 +51,15 @@ class _MyListState extends State<MyList> {
             preferredSize: Size.fromHeight(globals.appBarHeight),
             child: CustomAppBar(appName: "My List")),
         body: ListView.builder(
-            itemCount: myRecipes.length,
-            itemBuilder: (content, index) {
-          return GestureDetector(
-            onTap: (){},
-            child: Padding(
-            padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
-            child: Column(
-              children: <Widget>[
-                Text(myRecipes[index].recipeName),
-
-
-                //)
+            itemCount: recipesLength,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: (){},
+                child: Padding(
+                padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                child: Column(
+                  children: <Widget>[
+                    Text(myRecipes[index].recipeName),
               ],
             ),
           ));
