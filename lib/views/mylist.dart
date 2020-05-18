@@ -5,6 +5,7 @@ import 'package:mypalate/widgets/customAppBar.dart';
 import 'package:mypalate/globals.dart' as globals;
 import 'package:mypalate/data/recipe.dart';
 import "package:http/http.dart" as http;
+import 'package:flutter/foundation.dart';
 
 class MyList extends StatefulWidget {
   @override
@@ -13,29 +14,31 @@ class MyList extends StatefulWidget {
 
 class _MyListState extends State<MyList> {
 
-  Recipe aRecipe;
+  List<Recipe> myRecipes;
 
-  Future<void> loadRecipes() async
+  List<Recipe> parseRecipes(String rb)
   {
-    try {
-      final http.Response rp = await http.get("http://159.203.29.234:8080/v1/recipes/1");
-      if(rp.statusCode == 200){
-       List<dynamic> data = jsonDecode(rp.body);
-       print(data[0]['recipe_id']);
-      }else{
-        throw Exception("Failed to load recipe!");
-      }
-    }catch (error){
-      print(error);
-    }
+    final parsed = json.decode(rb).cast<Map<String, dynamic>>();
+    return parsed.map<Recipe>((json)=> Recipe.fromJson(json)).toList();
   }
+
+  Future<List<Recipe>> fetchRecipes(http.Client client) async {
+    final response = await client.get('http://159.203.29.234:8080/v1/recipes');
+    return parseRecipes(response.body);
+  }
+
 
   @override
   void initState() {
     super.initState();
-     //futureRecipe =  loadRecipes();
-    loadRecipes();
-    //print(futureRecipe);
+    fetchRecipes(http.Client())
+    .then((result){
+      setState((){
+        myRecipes = result;
+      });
+
+    });
+
   }
 
   @override
@@ -46,14 +49,16 @@ class _MyListState extends State<MyList> {
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(globals.appBarHeight),
             child: CustomAppBar(appName: "My List")),
-        body: ListView.builder(itemBuilder: (content, index) {
+        body: ListView.builder(
+            itemCount: myRecipes.length,
+            itemBuilder: (content, index) {
           return GestureDetector(
             onTap: (){},
             child: Padding(
             padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
             child: Column(
-              children: <MiniRecipeCard>[
-                MiniRecipeCard()
+              children: <Widget>[
+                Text(myRecipes[index].recipeName),
 
 
                 //)
