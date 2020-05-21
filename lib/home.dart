@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    double menuBarHeight = MediaQuery.of(context).size.height * 0.8;
+    double menuBarHeight = MediaQuery.of(context).size.height;
     double menuBarWidth = MediaQuery.of(context).size.width * 0.1;
 
     return Scaffold(
@@ -43,8 +43,8 @@ class _HomeState extends State<Home> {
               child: LayoutBuilder(builder: (context, constraints) {
                 return Padding(
                   padding: EdgeInsets.only(
-                      top: menuBarHeight * 1,
-                      bottom: menuBarHeight * .14,
+                      top: menuBarHeight * 0.88,
+                      bottom: menuBarHeight * 0.03,
                       left: menuBarWidth * .4,
                       right: menuBarWidth * .4),
                   child: ClipRRect(
@@ -62,33 +62,43 @@ class _HomeState extends State<Home> {
                       items: const <BottomNavigationBarItem>[
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
-                          title: Text("Home",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
+                          title: FittedBox(fit: BoxFit.fitHeight,
+                            child: Text("Home",
+                                style:
+                                    TextStyle(color: Colors.black, fontFamily: "Nunito-Regular")),
+                          ),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.format_list_numbered),
-                          title: Text("My List",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
+                          title: FittedBox(fit: BoxFit.fitHeight,
+                            child: Text("My List",
+                                style:
+                                    TextStyle(color: Colors.black, fontFamily: "Nunito-Regular")),
+                          ),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.remove_red_eye),
-                          title: Text("Discover",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
+                          title: FittedBox(fit: BoxFit.fitHeight,
+                            child: Text("Discover",
+                                style:
+                                    TextStyle(color: Colors.black, fontFamily: "Nunito-Regular")),
+                          ),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.fastfood),
-                          title: Text("Meals",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
+                          title: FittedBox(fit: BoxFit.fitHeight,
+                            child: Text("Meals",
+                                style:
+                                    TextStyle(color: Colors.black, fontFamily: "Nunito-Regular")),
+                          ),
                         ),
                         BottomNavigationBarItem(
                           icon: Icon(Icons.account_circle),
-                          title: Text("Account",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.black, fontFamily: "Nunito-Regular")),
+                          title: FittedBox(fit: BoxFit.fitHeight,
+                            child: Text("Account",
+                                style:
+                                    TextStyle(color: Colors.black, fontFamily: "Nunito-Regular")),
+                          ),
                         ),
                       ],
                     ),

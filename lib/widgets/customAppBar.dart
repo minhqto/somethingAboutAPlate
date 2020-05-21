@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatefulWidget {
   final String appName;
 
+
   CustomAppBar({this.appName});
 
   @override
@@ -17,6 +18,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     double titleTopPadding = MediaQuery.of(context).size.height * 0.08;
 
     return AppBar(
+
       flexibleSpace: Padding(
         child: Text(widget.appName,
             style: TextStyle(
@@ -27,7 +29,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
         padding: EdgeInsets.only(left: titleLeftPadding, top: titleTopPadding)
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       elevation: 0,
     );
   }

@@ -15,7 +15,6 @@ class MyList extends StatefulWidget {
 class _MyListState extends State<MyList> {
 
   List<Recipe> myRecipes;
-  List<Recipe> myRecipes2;
   int recipesLength = 0;
 
   List<Recipe> parseRecipes(String rb)

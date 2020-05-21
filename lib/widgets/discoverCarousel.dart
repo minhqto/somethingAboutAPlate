@@ -4,12 +4,15 @@ import 'package:mypalate/data/recipe.dart';
 import "package:http/http.dart" as http;
 import "dart:convert";
 
+import 'package:mypalate/widgets/discoverMiniRecipeCard.dart';
+
 class DiscoverCarousel extends StatefulWidget {
   @override
   _DiscoverCarouselState createState() => _DiscoverCarouselState();
 }
 
 class _DiscoverCarouselState extends State<DiscoverCarousel> {
+
 
   final PageController ctrl = PageController(viewportFraction: 0.8);
 
@@ -55,57 +58,71 @@ class _DiscoverCarouselState extends State<DiscoverCarousel> {
 
   @override
   Widget build(BuildContext context) {
+
+    double picLeftPadding = MediaQuery.of(context).size.width * 0.1;
+    double picRightPadding = MediaQuery.of(context).size.height * 0.08;
+
     return PageView.builder(
         physics: AlwaysScrollableScrollPhysics(),
         controller: ctrl,
-        //itemCount: recipesLength,
+        itemCount: recipesLength,
         itemBuilder: (context, index){
-          if(recipesLength >= index){
+//          if(recipesLength >= index){
             bool active = index == currentPage;
-            return _buildRecipeImage(myRecipes[index], active);
-          }
-          return Container(
-            child: Text("Hello ${index}"),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
 
-          );
-        });
+                  _buildRecipeImage(myRecipes[index], active, picLeftPadding, picRightPadding)
+              ]
+            );
+
+            }
+        );
 
   }
 
-  _buildRecipeImage(Recipe r, bool active)
+  _buildRecipeImage(Recipe recipe, bool active, double leftPadding, double rightPadding)
   {
-    final double blur = active ? 20 : 0;
-    final double offset = active ? 20 : 0;
+//    final double blur = active ? 20 : 0;
+//    final double offset = active ? 20 : 0;
     final double top = active ? 0 : 50;
     final double bottom = active ? 100 : 150;
     final double opacityAmt = active ? 1 : 0.4;
 
-    return Opacity(
-      opacity: opacityAmt,
-      child: AnimatedContainer(
-      child: Column(
-        children: <Widget>[
+    return Column(
+      children: <Widget> [
+        Container(
+      height: 400,
+      width: 300,
+      child: Opacity(
+        opacity: opacityAmt,
+        child: AnimatedContainer(
+        child: Column(
+          children: <Widget>[
 
-        ],
-      ),
-      duration: Duration(milliseconds: 100),
-      curve: Curves.easeOutQuint,
-      margin: EdgeInsets.only(top: top, right: 10, left: 10, bottom: bottom),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.blue,
-       // boxShadow: [BoxShadow(blurRadius: blur, offset: Offset(offset, offset))],
-        image:
-          DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(
-              r.imageUrl,
-
-          )
+          ],
+        ),
+        duration: Duration(milliseconds: 100),
+        curve: Curves.easeOutQuint,
+        margin: EdgeInsets.only(top: top, right: 0, left: 0, bottom: bottom),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          //color: Colors.blue,
+         // boxShadow: [BoxShadow(blurRadius: blur, offset: Offset(offset, offset))],
+          image:
+            DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+                recipe.imageUrl,
+            )
+          ),
+        ),
         )
-
       ),
-      )
+    ),
+  DiscoverMiniRecipeCard(recipeName: recipe.recipeName, prepTime: recipe.prepTime, desc: recipe.desc)
+        ]
     );
   }
 

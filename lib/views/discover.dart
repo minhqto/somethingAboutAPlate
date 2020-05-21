@@ -2,9 +2,7 @@ import "package:flutter/material.dart";
 import 'package:mypalate/widgets/customAppBar.dart';
 import 'package:mypalate/globals.dart' as globals;
 import 'package:mypalate/widgets/discoverCarousel.dart';
-import 'package:mypalate/data/recipe.dart';
-import "package:http/http.dart" as http;
-import "dart:convert";
+
 
 class Discover extends StatefulWidget {
   @override
@@ -12,8 +10,6 @@ class Discover extends StatefulWidget {
 }
 
 class _DiscoverState extends State<Discover> {
-
-
 
   final PageController ctrl = PageController();
   @override
@@ -30,9 +26,9 @@ class _DiscoverState extends State<Discover> {
                   child: DiscoverCarousel(),
                 ),
                 SizedBox(
-                  height: 300,
+                  //height: 100,
                 ),
-                Text("hello")
+                //Text("hello")
               ],
             )
     );
