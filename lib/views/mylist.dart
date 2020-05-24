@@ -6,21 +6,18 @@ import 'package:mypalate/globals.dart' as globals;
 import 'package:mypalate/data/recipe.dart';
 import "package:http/http.dart" as http;
 
-
 class MyList extends StatefulWidget {
   @override
   _MyListState createState() => _MyListState();
 }
 
 class _MyListState extends State<MyList> {
-
   List<Recipe> myRecipes;
   int recipesLength = 0;
 
-  List<Recipe> parseRecipes(String rb)
-  {
+  List<Recipe> parseRecipes(String rb) {
     final parsed = json.decode(rb).cast<Map<String, dynamic>>();
-    return parsed.map<Recipe>((json)=> Recipe.fromJson(json)).toList();
+    return parsed.map<Recipe>((json) => Recipe.fromJson(json)).toList();
   }
 
   Future<List<Recipe>> fetchRecipes(http.Client client) async {
@@ -28,22 +25,20 @@ class _MyListState extends State<MyList> {
     return parseRecipes(response.body);
   }
 
-
   @override
   void initState() {
     super.initState();
-    fetchRecipes(http.Client())
-    .then((result){
-      setState((){
+    fetchRecipes(http.Client()).then((result) {
+      setState(() {
         myRecipes = result;
-        recipesLength = result.length; //need this otherwise an exception is thrown under "itemCount" for listView builder
+        recipesLength = result
+            .length; //need this otherwise an exception is thrown under "itemCount" for listView builder
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: PreferredSize(
@@ -52,16 +47,17 @@ class _MyListState extends State<MyList> {
         body: ListView.builder(
             itemCount: recipesLength,
             itemBuilder: (context, index) {
+              Recipe curRecipe = myRecipes[index];
               return GestureDetector(
-                onTap: (){},
-                child: Padding(
-                padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
-                child: Column(
-                  children: <Widget>[
-                    Text(myRecipes[index].recipeName),
-              ],
-            ),
-          ));
-        }));
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                    child: Column(
+                      children: <Widget>[
+                        MiniRecipeCard(recipe: curRecipe),
+                      ],
+                    ),
+                  ));
+            }));
   }
 }

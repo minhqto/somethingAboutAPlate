@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:mypalate/data/recipe.dart';
 
 class MiniRecipeCard extends StatefulWidget {
+  final Recipe recipe;
+
+  const MiniRecipeCard({Key key, this.recipe}) : super(key: key);
+
   @override
   _MiniRecipeCardState createState() => _MiniRecipeCardState();
 }
 
 class _MiniRecipeCardState extends State<MiniRecipeCard> {
-
-
   //still need to fix the width of the cards
-
   @override
   Widget build(BuildContext context) {
+    Recipe recipe = widget.recipe;
 
     return Container(
       margin: EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
@@ -91,7 +93,7 @@ class _MiniRecipeCardState extends State<MiniRecipeCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Recipe Name",
+                          recipe.recipeName,
                           style: TextStyle(fontSize: 16.0),
                         ),
                         Padding(
