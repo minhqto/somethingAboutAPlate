@@ -2,6 +2,12 @@
 
 MyPalate Flutter Version
 
+## Testing the app
+
+1) Clone the repo
+2) Open it the project on Android Studio or Xcode for best results
+3) Connect your device via USB or use an emulator, and run the app!
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
