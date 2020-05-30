@@ -42,7 +42,8 @@ class _MyListState extends State<MyList> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(globals.appBarHeight),
+            preferredSize:
+                Size(double.infinity, MediaQuery.of(context).size.height * 0.1),
             child: CustomAppBar(appName: "My List")),
         body: ListView.builder(
             itemCount: recipesLength,
@@ -51,7 +52,7 @@ class _MyListState extends State<MyList> {
               return GestureDetector(
                   onTap: () {},
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 30, 10, 30),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
                     child: Column(
                       children: <Widget>[
                         MiniRecipeCard(recipe: curRecipe),

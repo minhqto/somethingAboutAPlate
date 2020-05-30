@@ -31,8 +31,8 @@ class _HomeState extends State<Home> {
       new MenuItem(name: "Hello", icon: Icon(Icons.home)),
       new MenuItem(name: "My List", icon: Icon(Icons.format_list_numbered)),
       new MenuItem(name: "Discover", icon: Icon(Icons.remove_red_eye)),
-      new MenuItem(name: "Meals", icon: Icon(Icons.fastfood)),
-      new MenuItem(name: "Account", icon: Icon(Icons.account_circle)),
+      // new MenuItem(name: "Meals", icon: Icon(Icons.fastfood)),
+      // new MenuItem(name: "Account", icon: Icon(Icons.account_circle)),
     ];
 
     List<BottomNavigationBarItem> generateMenuItems() {

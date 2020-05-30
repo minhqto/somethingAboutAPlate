@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:mypalate/globals.dart' as globals;
+import 'package:mypalate/main.dart';
 import 'package:mypalate/widgets/customAppBar.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,14 +9,15 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(globals.appBarHeight),
+          preferredSize:
+              Size(double.infinity, MediaQuery.of(context).size.height * 0.1),
           child: CustomAppBar(appName: "Home")),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-              Center(child: Image(image: AssetImage('assets/img/logo.png')))
-            ],
-          ),
+          Center(child: Image(image: AssetImage('assets/img/logo.png')))
+        ],
+      ),
     );
   }
 }

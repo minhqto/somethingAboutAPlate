@@ -13,7 +13,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     double titleLeftPadding = MediaQuery.of(context).size.width * 0.1;
-    double titleTopPadding = MediaQuery.of(context).size.height * 0.08;
+    double titleTopPadding = MediaQuery.of(context).size.height * 0.05;
 
     return AppBar(
       flexibleSpace: Padding(
@@ -25,7 +25,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   fontFamily: "Nunito-Regular")),
           padding:
               EdgeInsets.only(left: titleLeftPadding, top: titleTopPadding)),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.white,
       elevation: 0,
     );
   }

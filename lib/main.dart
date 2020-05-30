@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mypalate/home.dart';
 import 'package:mypalate/views/mylist.dart';
+import 'dart:ui' as ui;
+
+double screenWidth;
+double screenHeight;
 
 void main() {
+  screenWidth = ui.window.physicalSize.width / ui.window.devicePixelRatio;
+  screenHeight = ui.window.physicalSize.height / ui.window.devicePixelRatio;
   runApp(MyApp());
 }
 
@@ -22,5 +28,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
